@@ -1,1 +1,0 @@
-web: cd services/review && java -Djava.security.egd=file:/dev/./urandom -jar target/review-1.0.0.jar
