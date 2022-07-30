@@ -1,8 +1,10 @@
 package com.github.ajdhefley.rideit.services.review.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name="reviews")
@@ -33,8 +35,9 @@ public class Review {
     @JoinColumn(name="coasterid")
     private Coaster coaster;
 
+    @JsonManagedReference
     @OneToMany(cascade=CascadeType.ALL, mappedBy="review")
-    private Set<ReviewTag> reviewTags;
+    private List<ReviewTag> reviewTags;
 
     public Integer getReviewId() {
         return this.reviewId;
@@ -60,7 +63,7 @@ public class Review {
         return this.author;
     }
 
-    public Set<ReviewTag> getReviewTags() {
+    public List<ReviewTag> getReviewTags() {
         return this.reviewTags;
     }
 

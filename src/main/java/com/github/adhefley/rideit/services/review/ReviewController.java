@@ -28,8 +28,8 @@ public class ReviewController {
         return new ResponseEntity<>(this.reviewRepository.findByUrl(coasterUrl), HttpStatus.OK);
     }
 
-    @GetMapping("/review-tags/{reviewId}")
-    public ResponseEntity<List<ReviewTag>> getReviewsByCoasterUrl(@PathVariable("reviewId") int reviewId) {
+    @GetMapping("/review/{reviewId}/tags")
+    public ResponseEntity<List<ReviewTag>> getReviewTagsByCoasterUrl(@PathVariable("reviewId") int reviewId) {
         return new ResponseEntity<>(this.reviewTagRepository.findByReviewId(reviewId), HttpStatus.OK);
     }
 

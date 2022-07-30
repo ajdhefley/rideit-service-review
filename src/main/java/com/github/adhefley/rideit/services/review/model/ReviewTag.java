@@ -1,5 +1,7 @@
 package com.github.ajdhefley.rideit.services.review.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class ReviewTag {
     @Column(name="tag")
     private String tag;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="reviewid")
     public Review review;
