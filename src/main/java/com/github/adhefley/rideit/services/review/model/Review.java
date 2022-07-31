@@ -15,6 +15,9 @@ public class Review {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer reviewId;
 
+    @Column(name="userid")
+    private Integer userId;
+
     @Column(name="title")
     private String title;
 
@@ -28,10 +31,6 @@ public class Review {
     private Date timestamp;
 
     @ManyToOne
-    @JoinColumn(name="userid", nullable=false, updatable=false)
-    private ReviewAuthor author;
-
-    @ManyToOne
     @JoinColumn(name="coasterid")
     private Coaster coaster;
 
@@ -41,6 +40,10 @@ public class Review {
 
     public Integer getReviewId() {
         return this.reviewId;
+    }
+
+    public Integer getUserId() {
+        return this.userId;
     }
 
     public String getTitle() {
@@ -57,10 +60,6 @@ public class Review {
 
     public Date getTimestamp() {
         return this.timestamp;
-    }
-
-    public ReviewAuthor getAuthor() {
-        return this.author;
     }
 
     public List<ReviewTag> getReviewTags() {
